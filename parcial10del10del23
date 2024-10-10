@@ -1,0 +1,26 @@
+
+package parcialturnodtema110del10del23;
+import PaqueteLectura.GeneradorAleatorio;
+
+public class ParcialTurnoDTema110del10del23 {
+
+    public static void main(String[] args) {
+       Estacionamiento estacionamiento;
+       Vehiculo auto;
+       String [] vectorMarcas = {"Peugeot","BMW"};
+       GeneradorAleatorio.iniciar();
+       int sector = GeneradorAleatorio.generarInt(5);
+       int capacidad = GeneradorAleatorio.generarInt(5);
+       estacionamiento = new Estacionamiento (GeneradorAleatorio.generarString(5).toUpperCase(),GeneradorAleatorio.generarDouble(10000),sector,capacidad);
+        System.out.println("Cree el estacionamiento");
+       for (int i=0; i< 10; i++){
+               System.out.println("estoy cargando el vehiculo " + i);
+               auto = new Vehiculo (GeneradorAleatorio.generarString(8).toUpperCase(),GeneradorAleatorio.generarDouble(3) + 1,vectorMarcas[GeneradorAleatorio.generarInt(2)],GeneradorAleatorio.generarString(3).toLowerCase());
+               estacionamiento.agregarVehiculo(auto,GeneradorAleatorio.generarInt(5),GeneradorAleatorio.generarInt(5));
+       }
+        System.out.println("carge los vehiculos");
+        System.out.println("El sector con mayor recaudacion fue el numero: " + estacionamiento.retornarSector());
+        System.out.println(estacionamiento.toString());
+    }
+    
+}
